@@ -1,0 +1,88 @@
+name: "🚀 CI Terraform Module Releaser"
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed] # Closed required
+    branches:
+      - main
+
+permissions:
+  contents: write # Required for to push tags, create release, and push changes to the wiki
+  pull-requests: write # Required to comment on pull request
+
+jobs:
+  ci-python:
+    name: 🐍 ci-python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🐍 Python Setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: 📦 Dependencies Setup
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r ./requirements.txt
+      
+      - name: 📏 Linter Analysis with Pylint
+        run:
+          pylint --rcfile=.pylintrc app
+      
+      - name: 🔎 Static Type Analysis with Mypy
+        run:
+          mypy app
+
+      - name: 🧪 Unit Test with Pytest
+        run:
+          pytest -vv --color=yes --cov=./ --cov-report=xml
+
+      - name: ☂️ Test Coverage with Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+  ci-terraform-get-b3-active-tickers:
+    name: 🛠️ ci-terraform-get-b3-active-tickers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Checkout
+        uses: actions/checkout@v4
+
+      - name: ⛏️ Terraform Setup
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.10.5
+
+      - name: 🍃 Terraform Init
+        run: terraform init
+        working-directory: infra/aws/get-b3-active-tickers
+
+      - name: ✅ Terraform Validate
+        run: terraform validate
+        working-directory: infra/aws/get-b3-active-tickers
+
+  release:
+    name: 🚀 terraform-module-releaser
+    runs-on: ubuntu-latest
+    needs:
+      - ci-python
+      - ci-terraform-get-b3-active-tickers
+    
+    steps:
+      - name: 🔄 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🚀 Terraform Module Releaser
+        uses: techpivot/terraform-module-releaser@v1.4.1
+        with:
+            default-first-tag: v0.0.1
+            major-keywords: major change,breaking change
+            minor-keywords: feat,feature
+            patch-keywords: fix,hotfix,chore,docs,config,ci
+            terraform-docs-version: v0.19.0
