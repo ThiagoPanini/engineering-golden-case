@@ -1870,6 +1870,21 @@ files = [
 ]
 
 [[package]]
+name = "types-requests"
+version = "2.32.0.20241016"
+description = "Typing stubs for requests"
+optional = false
+python-versions = ">=3.8"
+groups = ["dev"]
+files = [
+    {file = "types-requests-2.32.0.20241016.tar.gz", hash = "sha256:0d9cad2f27515d0e3e3da7134a1b6f28fb97129d86b867f24d9c726452634d95"},
+    {file = "types_requests-2.32.0.20241016-py3-none-any.whl", hash = "sha256:4195d62d6d3e043a4eaaf08ff8a62184584d2e8684e9d2aa178c7915a7da3747"},
+]
+
+[package.dependencies]
+urllib3 = ">=2"
+
+[[package]]
 name = "types-s3transfer"
 version = "0.11.2"
 description = "Type annotations and code completion for s3transfer"
@@ -1965,4 +1980,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13"
-content-hash = "012adf99057a1f82e1ed3b53ec0170c21ff76a8cf9d9594b4ac7f2ad9f13a8bc"
+content-hash = "1bed56a222e6f8e177d32dda4659ff0f8e15a6fd08706568954de802fb2d9961"
