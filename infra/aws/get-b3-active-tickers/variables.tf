@@ -33,3 +33,18 @@ variable "dynamodb_tickers_info_table_range_key" {
   type        = string
   default     = "dt_extracted"
 }
+
+variable "dynamodb_tickers_info_table_attributes" {
+  description = "Lista de atributos indexados (hash ou range key) associados à tabela"
+  type        = list(map(string))
+  default = [
+    {
+      "name" : "code",
+      "type" : "S"
+    },
+    {
+      "name" : "dt_extracted",
+      "type" : "S"
+    }
+  ]
+}
