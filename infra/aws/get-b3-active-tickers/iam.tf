@@ -16,7 +16,8 @@ module "aws_iam_role" {
 
   policy_templates_vars = {
     "region_name" = local.region_name,
-    "account_id"  = local.account_id
+    "account_id"  = local.account_id,
+    "table_name"  = "tbl_egc_b3_active_tickers"
   }
 
 }
