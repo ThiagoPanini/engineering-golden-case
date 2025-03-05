@@ -1,14 +1,21 @@
 /* --------------------------------------------------------
 ARQUIVO: variables.tf @ get-active-tickers module
 
-Arquivo de variáveis aceitas pelo módulo get-active-tickers
-do projeto Terraform.
+Arquivo de variáveis definidas para configurar todas as
+declarações de recursos necessárias para implantação das
+peças de coleta e armazenamento de informações básicas de
+ativos financeiros listados na B3.
+-------------------------------------------------------- */
+
+
+/* --------------------------------------------------------
+   VARIÁVEIS: DynamoDB
 -------------------------------------------------------- */
 
 variable "dynamodb_tickers_info_table_name" {
   description = "Nome da tabela a ser criada no DynamoDB para armazenar informações básicas de tickers listados na B3"
   type        = string
-  default     = "tbl_b3_tickers_info"
+  default     = "tbl_egc_b3_active_tickers"
 }
 
 variable "dynamodb_tickers_info_table_billing_mode" {
@@ -48,3 +55,8 @@ variable "dynamodb_tickers_info_table_attributes" {
     }
   ]
 }
+
+/* --------------------------------------------------------
+   VARIÁVEIS: Policies e Role IAM
+-------------------------------------------------------- */
+
