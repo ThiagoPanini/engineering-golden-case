@@ -1,5 +1,5 @@
 /* --------------------------------------------------------
-ARQUIVO: dynamodb.tf @ get-active-tickers module
+ARQUIVO: dynamodb.tf @ get-b3-active-tickers module
 
 Criação de um DynamoDB previamente configurado como um
 recurso de armazenamento de itens obtidos através de
@@ -7,19 +7,21 @@ interface para coleta de informações de ativos financeiros
 listados na B3.
 -------------------------------------------------------- */
 
-resource "aws_dynamodb_table" "tickers_info" {
-  name         = var.dynamodb_tickers_info_table_name
-  billing_mode = var.dynamodb_tickers_info_table_billing_mode
-  hash_key     = var.dynamodb_tickers_info_table_hash_key
-  range_key    = var.dynamodb_tickers_info_table_range_key
+module "aws_dynamodb_table" {
+  source = "git::https://github.com/ThiagoPanini/tf-modules-showcase.git?ref=aws/dynamodb-table/v0.1.1"
 
-  attribute {
-    name = var.dynamodb_tickers_info_table_hash_key
-    type = "S"
-  }
+  name      = "tbl_egc_b3_active_tickers"
+  hash_key  = "code"
+  range_key = "dt_extracted"
 
-  attribute {
-    name = var.dynamodb_tickers_info_table_range_key
-    type = "S"
-  }
+  attributes = [
+    {
+      "name" : "code",
+      "type" : "S"
+    },
+    {
+      "name" : "dt_extracted",
+      "type" : "S"
+    }
+  ]
 }

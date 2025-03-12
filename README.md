@@ -1,5 +1,5 @@
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/engineering-golden-case/blob/feature/repository-setup/docs/assets/logo.png?raw=true" width=200 alt="engineering-golden-case-logo">
+    <br><img src="https://github.com/ThiagoPanini/engineering-golden-case/blob/main/docs/assets/logo.png?raw=true" width=200 alt="engineering-golden-case-logo">
 </div>
 
 <div align="center">  
@@ -47,7 +47,7 @@ ___
 
 O **Engineering Golden Case** faz parte de um projeto pessoal que visa simular desafios reais das disciplinas de Engenharia de Software, Engenharia de Dados e Engenharia de Analytics. A ideia é propor um ambiente onde profissionais dessas áreas podem visualizar as melhores práticas para o desenvolvimento de soluções, considerando elementos de arquitetura, programação, armazenamento e transformação de dados.
 
-> ⚠️ **Definições em andamento**
+> [!IMPORTANT]
 > Por enquanto, o projeto está em fase inicial de desenvolvimento. Algumas decisões podem ser sumariamente modificadas durante esta etapa.
 
 

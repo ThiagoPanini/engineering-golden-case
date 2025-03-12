@@ -1,7 +1,7 @@
 import requests
 from requests.adapters import HTTPAdapter, Retry
 
-from app.src._cross.utils.logger import get_logger
+from app.src.cross.utils.logger import get_logger
 from app.src.get_b3_active_tickers.domain.interfaces.adapters_interface import IHttpAdapter
 
 
