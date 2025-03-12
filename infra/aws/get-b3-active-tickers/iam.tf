@@ -11,8 +11,8 @@ module "aws_iam_role" {
   source = "git::https://github.com/ThiagoPanini/tf-modules-showcase.git?ref=aws/iam-role/v0.1.0"
 
   role_name                   = "egc-role-get-b3-active-tickers"
-  trust_policy_filepath       = "${path.module}/iam_assets/trust_policies/trust-lambda.json"
-  policy_templates_source_dir = "${path.module}/iam_assets/policy_templates"
+  trust_policy_filepath       = "${path.module}/assets/iam/trust_policies/trust-lambda.json"
+  policy_templates_source_dir = "${path.module}/assets/iam/policy_templates"
 
   policy_templates_vars = {
     "region_name" = local.region_name,

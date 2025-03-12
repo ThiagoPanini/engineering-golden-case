@@ -5,7 +5,7 @@
             "Sid": "PutDynamoDBItem",
             "Effect": "Allow",
             "Action": "dynamodb:PutItem",
-            "Resource": "arn:aws:dynamodb:us-east-1:767397688701:table/tbl_egc_b3_active_tickers"
+            "Resource": "arn:aws:dynamodb:us-east-1:381492081218:table/tbl_egc_b3_active_tickers"
         }
     ]
 }

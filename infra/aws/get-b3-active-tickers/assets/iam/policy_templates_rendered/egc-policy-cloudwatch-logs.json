@@ -5,7 +5,7 @@
             "Sid": "CreateCloudWatchLogGroup",
             "Effect": "Allow",
             "Action": "logs:CreateLogGroup",
-            "Resource": "arn:aws:logs:us-east-1:767397688701:*"
+            "Resource": "arn:aws:logs:us-east-1:381492081218:*"
         },
         {
             "Sid": "PutCloudWatchLogs",
@@ -15,7 +15,7 @@
                 "logs:PutLogEvents"
             ],
             "Resource": [
-                "arn:aws:logs:us-east-1:767397688701:log-group:/aws/lambda/*"
+                "arn:aws:logs:us-east-1:381492081218:log-group:/aws/lambda/*"
             ]
         }
     ]
