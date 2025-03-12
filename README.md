@@ -1,5 +1,5 @@
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/engineering-golden-case/blob/feature/repository-setup/docs/assets/logo.png?raw=true" width=200 alt="engineering-golden-case-logo">
+    <br><img src="https://github.com/ThiagoPanini/engineering-golden-case/blob/main/docs/assets/logo.png?raw=true" width=200 alt="engineering-golden-case-logo">
 </div>
 
 <div align="center">  
