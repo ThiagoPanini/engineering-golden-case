@@ -18,8 +18,8 @@ def handler(event: dict[str, Any], context: Any):
     adapter = FundamentusGetTickersAdapter()
 
     repository = DynamodbTickersInfoRepository(
-        table_name="teste",
-        region_name="teste"
+        table_name="tbl_egc_b3_active_tickers",
+        region_name="us-east-1"
     )
 
     use_case = SaveTickersInfoUseCase(adapter=adapter, repository=repository)
