@@ -1,5 +1,9 @@
+# Diretório de testes locais
 **local
+
+# Layers e pacotes Lambda adicionais
 **.zip
+infra/aws/_cross/lambda_layers
 
 # Arquivos temporários usados em tempo de exploração de funcionalidades
 **.ipynb
