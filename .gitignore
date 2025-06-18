@@ -4,6 +4,9 @@
 # Layers e pacotes Lambda adicionais
 infra/aws/_cross/lambda_layers/*/python/
 
+# Arquivos JSON de policies renderizados com possíveis informações sensíveis
+infra/aws/get-b3-active-tickers/assets/iam/policy_templates_rendered/
+
 # Arquivos temporários usados em tempo de exploração de funcionalidades
 **.ipynb
 
